@@ -20,3 +20,12 @@ function player(turn){
 }
 
 
+//check for one
+player.firstRoll =  function(){
+	if (this.roll = 1) {
+		this.playerScore=0;
+		alert("Sorry" this.playerName + ", you rolled a 1! Your turn is over")
+	} else{
+		this.playerScore=this.roll;
+	}
+}
