@@ -29,3 +29,29 @@ player.firstRoll =  function(){
 		this.playerScore=this.roll;
 	}
 }
+
+
+
+//hold
+player.hold=function(){
+	this.totalScore+=playerScore;
+	this.totalScore =0;
+	alert("Sorry" this.playerName + ",Your turn is over")
+
+
+}
+
+
+
+//check for winner
+player.checkWinner = function(){
+	if(this.totalScore>=100){
+		alert(this.playerName +"Hurray, you are the winner")
+	}
+}
+
+
+
+
+//user interface
+
