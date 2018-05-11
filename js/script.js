@@ -6,8 +6,11 @@ var player2 = "";
 
 
 
-var throw = function(){
-	return Math.floor(6*math.random())+1;
+// var throw = function(){
+// 	return Math.floor(6*Math.random())+1;
+// }
+var throwdice = function () {
+  return Math.floor(6*Math.random())+1;
 }
 
 
@@ -20,26 +23,45 @@ function player(turn){
 }
 
 
-//check for one
-player.firstRoll =  function(){
-	if (this.roll = 1) {
-		this.playerScore=0;
-		alert("Sorry" this.playerName + ", you rolled a 1! Your turn is over")
-	} else{
-		this.playerScore=this.roll;
-	}
+// //check for one
+// player.firstRoll =  function(){
+// 	if (this.roll = 1) {
+// 		this.playerScore=0;
+// 		alert("Sorry" this.playerName + ", you rolled a 1! Your turn is over")
+// 	} else{
+// 		this.playerScore=this.roll;
+// 	}
+// }
+// checking for 1
+player.prototype.rollone = function() {
+  if (this.roll === 1) {
+  this.playerScore = 0;
+  alert("Sorry " + this.playerName + ", you rolled a 1! Your turn is over!")
+  // this.changeturn();
+  } else {
+  this.playerScorescore += this.roll;
+  }
 }
 
 
 
-//hold
-player.hold=function(){
-	this.totalScore+=playerScore;
-	this.totalScore =0;
-	alert("Sorry" this.playerName + ",Your turn is over")
+// //hold
+// player.hold=function(){
+// 	this.totalScore+=playerScore;
+// 	this.totalScore =0;
+// 	alert("Sorry" this.playerName + ",Your turn is over")
+
+// }
+// hold
+player.prototype.hold = function () {
+  this.totalscore += this.playerScore;
+  this.playerScore = 0;
+  // this.changeturn();
+  alert(this.playerName + ", your turn is over, pass the mouse!")
 
 
 }
+
 
 
 
@@ -54,4 +76,68 @@ player.checkWinner = function(){
 
 
 //user interface
+$(document).ready(function() {
+
+  $("button#start").click(function(event){
+    player1 = new player(true);
+    player2 =  new player(false);
+    $(".player-console").show();
+    $(".start-menu").hide();
+
+    var player1Name = $(".player1Name").val();
+    $("#player1Name").text(player1Name);
+
+    var player2Name = $(".player2Name").val();
+    $("#player2Name").text(player2Name);
+
+    player1.playerName=player1Name;
+    player2.playerName=player2Name;
+
+  });
+  $("button#new-game").click(function(event){
+    $(".player-console").hide();
+    clearValues();
+    player1.newGame();
+    player2.newGame();
+    $("#round-total-1").empty();
+    $("#total-score-1").empty();
+    $("#die-roll-1").empty();
+    $("#round-total-2").empty();
+    $("#total-score-2").empty();
+    $("#die-roll-2").empty();
+
+    $(".start-menu").show();
+  });
+
+  $("button#player1-roll").click(function(event){
+    player1.roll = throwdice();
+    $("#die-roll-1").text(player1.roll);
+    player1.rollone();
+    $("#round-total-1").text(player1.playerScore);
+  });
+
+  $("button#player2-roll").click(function(event){
+    player2.roll = throwdice();
+    $("#die-roll-2").text(player2.roll);
+    player2.rollone();
+    $("#round-total-2").text(player2.playerScore);
+  });
+
+  $("button#player1-hold").click(function(event){
+    player1.hold();
+    $("#total-score-1").text(player1.totalscore);
+    $("#round-total-1").empty();
+    $("#die-roll-1").empty();
+    player1.winnerCheck();
+  });
+
+  $("button#player2-hold").click(function(event){
+    player2.hold();
+    $("#total-score-2").text(player2.totalscore);
+    $("#round-total-2").empty();
+    $("#die-roll-2").empty();
+    player2.winnerCheck();
+  });
+
+});
 
