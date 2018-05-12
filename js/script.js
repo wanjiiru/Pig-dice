@@ -1,67 +1,42 @@
 //business logic
-
-
 var player1 = "";
 var player2 = "";
 
 
+function player(turn){
+	this.roll=0;this.totalScore=0;
+  this.turn= turn;
+  this.playerName;
+	this.playerScore=0;	
+}
 
-// var throw = function(){
-// 	return Math.floor(6*Math.random())+1;
-// }
-var throwdice = function () {
+
+var throwdice = function(){
   return Math.floor(6*Math.random())+1;
 }
 
 
-function player(turn){
-	this.roll=0;
-	this.playerScore=0;
-	this.totalScore=0;
-	this.turn= turn;
-	this.playerName;
-}
 
 
-// //check for one
-// player.firstRoll =  function(){
-// 	if (this.roll = 1) {
-// 		this.playerScore=0;
-// 		alert("Sorry" this.playerName + ", you rolled a 1! Your turn is over")
-// 	} else{
-// 		this.playerScore=this.roll;
-// 	}
-// }
-// checking for 1
-player.prototype.rollone = function() {
+player.prototype.rollone = function(){
   if (this.roll === 1) {
   this.playerScore = 0;
   alert("Sorry " + this.playerName + ", you rolled a 1! Your turn is over!")
-  // this.changeturn();
   } else {
-  this.playerScorescore += this.roll;
+  this.playerScore += this.roll;
   }
 }
 
 
 
-// //hold
-// player.hold=function(){
-// 	this.totalScore+=playerScore;
-// 	this.totalScore =0;
-// 	alert("Sorry" this.playerName + ",Your turn is over")
-
-// }
 // hold
 player.prototype.hold = function () {
   this.totalscore += this.playerScore;
   this.playerScore = 0;
-  // this.changeturn();
-  alert(this.playerName + ", your turn is over, pass the mouse!")
+  alert(this.playerName + ", your turn is over")
 
 
 }
-
 
 
 

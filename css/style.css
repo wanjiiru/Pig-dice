@@ -1,3 +1,9 @@
 .player-console {
   display: block;
 }
+
+
+.player-comsole{
+/*	display: inline;
+*/	float: right;
+}
