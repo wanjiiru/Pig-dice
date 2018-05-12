@@ -7,3 +7,16 @@
 /*	display: inline;
 */	float: right;
 }
+
+
+
+.main-page{
+	background-image: url("img/dice.png");
+    color: black;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 22em;
+    padding-bottom: 22em;
+    opacity: 0.8;
+}
