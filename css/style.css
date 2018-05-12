@@ -20,3 +20,15 @@
     padding-bottom: 22em;
     opacity: 0.9;
 }
+
+
+
+
+#footer{
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #000000;
+    text-align: center;
+    width:100%;
