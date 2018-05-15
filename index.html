@@ -14,10 +14,25 @@
     <body>
       <div class="main-page">
 
+          <div class=" rules container">
+              <div class="jumbotron">
+                  <h3>Rules</h3>
+                  <ol>
+                    <li>Player 1 goes first</li>
+                    <li>First Player to 100 pts wins!</li>
+                    <li>Values for 2-6 get added to the "Roll Total" value for each turn</li>
+                    <li>If you roll a 1, your turn is over and you get NO POINTS</li>
+                    <li>Reload page to start new game</li>
+                    <li>Have fun!</li>
+                  </ol>
+                </div>
+          </div>
+          
+
 
         <div class="start-menu container">
           <div class="jumbotron">
-            <h1>Pig Dice!</h1>
+            <h3>Pig Dice!</h3>
             <form id="player-1">
             <div class="form-group">
               <label for="player1Name">Player one Name:</label>
@@ -30,7 +45,7 @@
               <input required class="player2Name form-control" type="text">
             </div>
           </form>
-          <button id="start" class="btn-info btn">Submit</button>
+          <button id="start" class="btn-success btn text-center">Submit</button>
       </div>
     </div>
 
@@ -39,24 +54,22 @@
 
         <div class="col-md-6">
         <div class="jumbotron">
-           <h4>Player 1: <span id = "player1Name"><span></h4>
-            <button id="player1-roll" class="btn-success btn">Roll the Dice</button>
-            <button id="player1-hold" class="btn-success btn">Hold roll</button>
-            <h2>Dice Roll: <span id="die-roll-1"></span></h2>
+           <h3>Player 1: <span id = "player1Name"><span></h3>
+            <button id="player1-roll" class="btn text-center" style="color: maroon; ">Roll the Dice</button>
+            <button id="player1-hold" class="btn" style="color: maroon">Hold</button><br><br>
+            <h5>Your Roll: <span id="die-roll-1"></span></h5><br>
             <p>Round Total: <span id="round-total-1"></span></p>
-            <p>Final Score: <span id="total-score-1"></span></p>
         </div>
       </div>
        
 
           <div class="col-md-6">
             <div class="jumbotron">
-              <h4>Player 2: <span id = "player2Name"><span></h4>
-                  <button id="player2-roll" class="btn-success btn">Roll the Dice</button>
-                  <button id="player2-hold" class="btn-success btn">Hold roll</button>
-                  <h2>Dice Roll: <span id="die-roll-2"></span></h2>
+              <h3>Player 2: <span id = "player2Name"><span></h3>
+                  <button id="player2-roll" class="btn" style="color: maroon">Roll the Dice</button>
+                  <button id="player2-hold" class="btn" style="color: maroon">Hold</button><br><br>
+                  <h5>Your Roll: <span id="die-roll-2"></span></h5><br>
                   <p>Round Total: <span id="round-total-2"></span></p>
-                  <p> Final Total: <span id="total-score-2"></span></p>
             </div>
           </div>
       </div>

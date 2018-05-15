@@ -2,36 +2,44 @@
 var player1 = "";
 var player2 = "";
 
-
-function player(turn){
-	this.roll=0;this.totalScore=0;
-  this.turn= turn;
-  this.playerName;
-	this.playerScore=0;	
-}
-
-
-var throwdice = function(){
-  return Math.floor(6*Math.random())+1;
-}
-
-
-
-
 player.prototype.rollone = function(){
   if (this.roll === 1) {
   this.playerScore = 0;
-  alert("Sorry " + this.playerName + ", you rolled a 1! Your turn is over!")
+  alert("Sorry " + this.playerName + ", you rolled a 1! Next Player!")
   } else {
   this.playerScore += this.roll;
   }
 }
 
 
+function player(turn){
+  this.roll=0;
+  this.totalScore=0;
+  this.turn= turn;
+  this.playerName;
+	this.playerScore=0;	
+}
+
+
+var throwd = function(){
+  return Math.floor(6*Math.random())+1;
+}
+
+//reset values
+function reset() {
+  player1.newGame();
+  player2.newGame();
+  $("#total-score-1").empty();
+  $("#die-roll-1").empty();
+  $("#round-total-2").empty();
+  $("#total-score-2").empty();
+  $("#die-roll-2").empty();
+}
+
 
 // hold
 player.prototype.hold = function () {
-  this.totalscore += this.playerScore;
+  this.totalScore += this.playerScore;
   this.playerScore = 0;
   alert(this.playerName + ", your turn is over")
 
@@ -48,16 +56,7 @@ player.checkWinner = function(){
 }
 
 
-function reset() {
-  player1.newGame();
-  player2.newGame();
-  $("#round-total-1").empty();
-  $("#total-score-1").empty();
-  $("#die-roll-1").empty();
-  $("#round-total-2").empty();
-  $("#total-score-2").empty();
-  $("#die-roll-2").empty();
-}
+
 
 
 
@@ -88,14 +87,14 @@ $(document).ready(function() {
   });
 
   $("button#player1-roll").click(function(event){
-    player1.roll = throwdice();
+    player1.roll = throwd();
     $("#die-roll-1").text(player1.roll);
     player1.rollone();
     $("#round-total-1").text(player1.playerScore);
   });
 
   $("button#player2-roll").click(function(event){
-    player2.roll = throwdice();
+    player2.roll = throwd();
     $("#die-roll-2").text(player2.roll);
     player2.rollone();
     $("#round-total-2").text(player2.playerScore);
