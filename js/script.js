@@ -80,6 +80,13 @@ $(document).ready(function() {
     player2.playerName=player2Name;
 
   });
+
+  // $("button#new-game").click(function(event){
+  //   $(".player-console").hide();
+  //   reset();
+  //   $(".start-menu").show();
+  // });
+
   $("button#new-game").click(function(event){
     $(".player-console").hide();
     reset();
@@ -108,13 +115,6 @@ $(document).ready(function() {
     player1.winnerCheck();
   });
 
-  $("button#player2-hold").click(function(event){
-    player2.hold();
-    $("#total-score-2").text(player2.totalscore);
-    $("#round-total-2").empty();
-    $("#die-roll-2").empty();
-    player2.winnerCheck();
-  });
 
 });
 
